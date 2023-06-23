@@ -6,7 +6,9 @@ TICTOOL=tic-tool
 ALG=dlas
 LEVEL=3
 TARGET=256
-PAKOPTS=-z$(LEVEL) -a$(ALG) -p --target-size=$(TARGET)
+STEPS=10000
+CHUNKS=code
+PAKOPTS=-z$(LEVEL) -a$(ALG) -s$(STEPS) -p -c$(CHUNKS) --target-size=$(TARGET)
 
 dist: $(PROG).tic
 

@@ -1,37 +1,37 @@
--- debug.sethook()
+----------------------------------------
+-- 0 bytes:                                                                                                
+----------------------------------------                                                                   
 --{
+d=.5
+o=0
 TIC=function()
- -- poke(16379,1)
   --{
-  s=s-t/24
-  w=3+w
-  t=t+s/24
+  c=c+3
+  q=.5+(d^2)^.5
+  o=o-d/24
+  d=d+o/24
   --}
-  n=(t^2)^.5+.5
-  for u=0,240*136 do
+  for r=0,4e4 do
     --{
-    v=u%48
-    f=u%240
-    p=u//240
+    t=r//240
+    p=r%240
+    poke(r%48+16320,r%48*6*math.sin(r%48)^2)
     --}
-    poke(16320+v,v*6*math.sin(v)^2)
     --{
-    r=p/66-1
-    m=f/66-1.8-s
+    h=t/66-1
+    g=p/66-1.8-o
     --}
-    d=(r^2+m^2)^.5/n
-    if d<1 then
-		    c=(1-(1-d)^.5)/n/d*100
-		    pix(f,p,n*(p*2-f%2)%4/4+(1-d)*((x(c*r,c*m+1)-x(c*r,c*m))*c*m+12*n+(x(c*r+1,c*m)-x(c*r,c*m))*c*r)+1)
-    else    
-	 	   pix(f,p,7*x(f,p)+7*x(f*.5,p*.5))
+    s=(g*g+h^2)^.5/q
+    if s<1then
+      n=(1-(1-s)^.5)/s*100/q
+      pix(p,t,1+q*(2*t-p%2)%4/4+(1-s)*(n*(e(n*h+1,n*g)-e(n*h,n*g))*h+q*12+(e(n*h,n*g+1)-e(n*h,n*g))*n*g))
+    else
+      pix(p,t,7*e(p,t)+7*e(p*.5,.5*t))
     end
   end
 end
-t=.5
-w=0
-s=0
-x=function(m,r)
-  return(m//1~(r+w)//1)%33/150
+e=function(g,h)
+  return(g//1~(c+h)//1)%33/150
 end
+c=0
 --}
