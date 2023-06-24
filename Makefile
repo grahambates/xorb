@@ -1,4 +1,4 @@
-PROG=sphere3
+PROG=xorb
 TIC=/Applications/tic80.app/Contents/MacOS/tic80
 TICOPTS=--skip
 PAK=pakettic
